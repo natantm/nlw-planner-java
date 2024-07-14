@@ -1,6 +1,9 @@
 package com.rocketseat.planner.trip;
 
+import com.rocketseat.planner.validator.TripDate;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Future;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +19,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@TripDate(message = "End have to be after start")
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +29,7 @@ public class Trip {
     private String destination;
 
     @Column(name = "starts_at", nullable = false)
+    @Future(message = "Data de inicio deve ser no futuro")
     private LocalDateTime startsAt;
 
     @Column(name = "ends_at", nullable = false)
@@ -37,6 +42,7 @@ public class Trip {
     private String ownerName;
 
     @Column(name = "owner_email", nullable = false)
+    @Email(message = "email deve ser valido")
     private String ownerEmail;
 
     public Trip(TripRequestPayload data) {

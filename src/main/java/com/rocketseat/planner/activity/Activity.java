@@ -1,6 +1,7 @@
 package com.rocketseat.planner.activity;
 
 import com.rocketseat.planner.trip.Trip;
+import com.rocketseat.planner.validator.ActivityDate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ActivityDate
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

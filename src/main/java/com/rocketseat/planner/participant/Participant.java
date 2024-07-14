@@ -2,6 +2,7 @@ package com.rocketseat.planner.participant;
 
 import com.rocketseat.planner.trip.Trip;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Participant {
     private String name;
 
     @Column(nullable = false)
+    @Email(message = "email deve ser valido")
     private String email;
 
     @ManyToOne

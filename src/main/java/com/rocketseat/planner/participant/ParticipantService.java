@@ -18,8 +18,6 @@ public class ParticipantService {
 
         this.repository.save(newParticipant);
 
-        System.out.println(newParticipant.getId());
-
         return new ParticipantCreateResponse(newParticipant.getId());
     }
 
